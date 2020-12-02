@@ -1,8 +1,11 @@
 # belajarFlutter
 
-A new Flutter project.
+Belajar membuat flutter dan firebase
 
-## Getting Started
+## yang dilakukan
+1. Firebase Auth dengan flutter
+
+### Getting Started
 
 This project is a starting point for a Flutter application.
 
