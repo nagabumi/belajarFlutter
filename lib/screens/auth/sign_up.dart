@@ -92,7 +92,7 @@ class _SignUpPageState extends State<SignUpPage> {
                             if (_fomKey.currentState.validate()) {
                               await AuthService.signUP(
                                   _email.text, _password.text);
-                              // Navigator.of(context).pushReplacementNamed('/');
+                              Navigator.pop(context);
                             }
                           },
                           color: Colors.purple[100],

@@ -1,4 +1,6 @@
-import 'package:belajarFlutter/services/auth.dart';
+import 'package:belajarFlutter/screens/pages/dompet_page.dart';
+import 'package:belajarFlutter/screens/pages/menu_page.dart';
+import 'package:belajarFlutter/screens/pages/pesanan_page.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget {
@@ -7,24 +9,35 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  int _selectedIndex = 0;
+  List<Widget> _widgetOption = <Widget>[
+    DompetPage(),
+    MenuPage(),
+    PesananPage()
+  ];
+
+  void _onIndexTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Main Page'),
-      ),
       body: Center(
-        child: Column(
-          children: <Widget>[
-            Text('main page'),
-            RaisedButton(
-              onPressed: () async {
-                await AuthService.signOut();
-              },
-              child: Text('Sign Out'),
-            )
-          ],
-        ),
+        child: _widgetOption.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(Icons.wallet_travel), label: 'Dompet'),
+          BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: 'Menu'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications), label: 'Pesanan'),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onIndexTapped,
       ),
     );
   }
