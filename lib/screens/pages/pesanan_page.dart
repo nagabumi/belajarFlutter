@@ -10,6 +10,7 @@ class _PesananPageState extends State<PesananPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[100],
         title: Text('Pesanan'),
         centerTitle: true,
       ),

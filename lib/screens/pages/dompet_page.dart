@@ -10,6 +10,7 @@ class _DompetPageState extends State<DompetPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.purple[100],
         title: Text('Dompet'),
         centerTitle: true,
       ),

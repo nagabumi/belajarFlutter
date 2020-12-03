@@ -37,6 +37,7 @@ class _MainPageState extends State<MainPage> {
               icon: Icon(Icons.notifications), label: 'Pesanan'),
         ],
         currentIndex: _selectedIndex,
+        selectedItemColor: Colors.purple[200],
         onTap: _onIndexTapped,
       ),
     );
