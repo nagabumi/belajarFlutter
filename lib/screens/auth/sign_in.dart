@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:animate_do/animate_do.dart';
 
 class SignInPage extends StatefulWidget {
+  final Function toogleView;
+  SignInPage({this.toogleView});
+
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -11,6 +14,8 @@ class _SignInPageState extends State<SignInPage> {
   final _email = TextEditingController();
   final _password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  String error = '';
 
   @override
   Widget build(BuildContext context) {
@@ -125,16 +130,13 @@ class _SignInPageState extends State<SignInPage> {
                         child: Container(
                           padding: EdgeInsets.all(30.0),
                           child: FlatButton(
-                              onPressed: () {
-                                Navigator.of(context).pushNamed('/signUp');
-                                // return SignUpPage();
-                              },
+                              onPressed: () => widget.toogleView(),
                               child: Text(
                                 'Sign Up',
                                 style: TextStyle(color: Colors.grey[400]),
                               )),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),

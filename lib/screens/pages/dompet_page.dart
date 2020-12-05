@@ -1,3 +1,4 @@
+import 'package:belajarFlutter/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class DompetPage extends StatefulWidget {
@@ -15,7 +16,18 @@ class _DompetPageState extends State<DompetPage> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text('Dompet'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Text('Dompet'),
+            RaisedButton(
+              onPressed: () async {
+                await AuthService.signOut();
+              },
+              child: Text('sign out'),
+            )
+          ],
+        ),
       ),
     );
   }
